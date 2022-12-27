@@ -9,7 +9,7 @@ const Home: React.FunctionComponent = () => {
   const [news, setNews] = useState<IArticle[] | null>(null);
   // console.log('state news', news);
   const [newsShow, setNewsShow] = useState<number>(50);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
   /******************************/
@@ -71,6 +71,7 @@ const Home: React.FunctionComponent = () => {
 
   /*********** Input Range *************/
   const changeNumberOfNews = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
     setNewsShow(+event.target.value);
   };
 
@@ -110,7 +111,6 @@ const Home: React.FunctionComponent = () => {
           min={1}
           max={100}
           value={newsShow}
-          defaultValue={newsShow}
           onChange={changeNumberOfNews}
           className='w-full h-1 mb-6 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700'
         />

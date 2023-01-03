@@ -28,7 +28,7 @@ const Search: React.FC<IWeather> = () => {
       <div className='mt-4'>
         <div className='mb-4'>
           <label
-            className='block text-gray-700 text-sm font-bold mb-2'
+            className='block mb-2 text-sm font-bold text-gray-700'
             htmlFor='météo'
           >
             <span className='text-4xl font-extrabold tracking-tight text-blue-400'>
@@ -44,18 +44,18 @@ const Search: React.FC<IWeather> = () => {
             value={cities}
             onChange={searchCities}
             onKeyPress={search}
-            className='shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            className='px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
           />
         </div>
       </div>
 
       {weather && weather.main && (
         <>
-          <div className='grid items-center justify-center mb-4 p-4 bg-white border rounded-lg shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700'>
+          <div className='grid items-center justify-center p-4 mb-4 bg-white border rounded-lg shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700'>
             <h5 className='text-4xl font-bold leading-none text-gray-900 dark:text-white'>
               {regexCity}
             </h5>
-            <div className='items-baseline text-gray-900 dark:text-white mt-4'>
+            <div className='items-baseline mt-4 text-gray-900 dark:text-white'>
               <span className='text-5xl font-extrabold tracking-tight'>
                 {Math.round(weather.main.temp!)}
               </span>
@@ -66,13 +66,13 @@ const Search: React.FC<IWeather> = () => {
 
             <ul role='list' className='space-y-5 my-7'>
               <li className='flex space-x-3'>
-                <span className='text-gray-700 text-base'>
+                <span className='text-base text-gray-700'>
                   Ressenti {weather.main.feels_like}
                   <sup>&deg;C</sup>
                 </span>
               </li>
               <li className='flex space-x-3'>
-                <span className='text-gray-700 text-base'>
+                <span className='text-base text-gray-700'>
                   Rafales {weather.wind.speed} km/h
                 </span>
               </li>

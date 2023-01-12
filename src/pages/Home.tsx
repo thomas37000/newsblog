@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IArticle from '../interfaces/ArticleInterface';
-import IMovie from '../interfaces/MovieInterface';
+import { IMovie } from '../interfaces/MovieInterface';
 import IFavorite from '../interfaces/FavoriteInterface';
 import { fetchNews } from '../api/api';
 import CardArticle from '../components/CardArticle';
@@ -12,7 +12,7 @@ const Home: React.FunctionComponent = () => {
   const [news, setNews] = useState<IArticle[] | null>(null);
   const [movies, setMovies] = useState<IMovie[]>([]);
   const [articles, setArticles] = useState<string>('');
-  const [newsShow, setNewsShow] = useState<number>(50);
+  const [newsShow, setNewsShow] = useState<number | any>(50);
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -27,7 +27,7 @@ const Home: React.FunctionComponent = () => {
 
   const query: string | null = '';
 
-  const API_KEY: string | undefined = process.env.REACT_APP_API_KEY;
+  const API_KEY: string | undefined = process.env.REACT_APP_API_NEWS_KEY;
 
   const date = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
     .toISOString()
@@ -110,8 +110,9 @@ const Home: React.FunctionComponent = () => {
   // };
 
   /*********** Input Range *************/
-  const updateNews = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNewsShow(+event.target.value);
+  const updateNews = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setNewsShow(e.target.value);
   };
 
   if (loading) return <p>"Loading ..."</p>;

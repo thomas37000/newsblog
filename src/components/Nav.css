@@ -1,0 +1,21 @@
+header nav {
+  display: flex;
+  gap: 16px;
+  justify-content: end;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.name-link {
+  text-decoration: none;
+  margin: 0 1rem;
+}
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+}
+.nav-links:hover {
+  color: #60a5fa;
+}

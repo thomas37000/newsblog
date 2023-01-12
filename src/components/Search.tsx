@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { IWeather } from '../interfaces/WeatherInterface';
 import { fetchWeather } from '../api/weatherApi';
+import '../App.css';
 
 const Search: React.FC<IWeather> = () => {
   const [cities, setCities] = useState<string>('');
@@ -25,7 +26,7 @@ const Search: React.FC<IWeather> = () => {
 
   return (
     <>
-      <div className='mt-4'>
+      <div className='mt-4 meteo'>
         <div className='mb-4'>
           <label
             className='block mb-2 text-sm font-bold text-gray-700'

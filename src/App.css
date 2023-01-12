@@ -27,20 +27,6 @@
   color: #61dafb;
 }
 
-header nav {
-  display: flex;
-  gap: 16px;
-  justify-content: end;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-header nav a {
-  text-decoration: none;
-  padding: 6px;
-  border-radius: 4px;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -48,4 +34,42 @@ header nav a {
   to {
     transform: rotate(360deg);
   }
+}
+
+.movies::before,
+.crypto::before,
+.meteo::before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-size: cover;
+  opacity: 0.9;
+}
+
+/* .movies::before {
+  background-image: url('https://media.istockphoto.com/id/1336937059/photo/film-reels-on-black-background-movie-video-and-cinema-prodaction-and-edition-concept.jpg?b=1&s=170667a&w=0&k=20&c=3Y_OD6qSJIP-9DNcNk-yIZ7CrcOJOLpFr2jfWIbegZA=');
+} */
+
+.crypto::before {
+  background-image: url('https://thumbs.dreamstime.com/b/bitcoin-pi%C3%A8ce-sur-fond-crypto-monnaie-graphique-de-n%C3%A9gociation-l-%C3%A9cran-ordinateur-finance-d-investissement-la-num%C3%A9rique-argent-233356324.jpg');
+}
+
+.meteo::before {
+  background-image: url('https://paysages.photos/wp-content/uploads/2017/06/paysage-nature-2-1-1024x684.jpg');
+}
+
+.crypto {
+  position: relative;
+}
+
+.api-error {
+  position: absolute;
+  top: 35%;
+  left: 40%;
+  margin: -25px 0 0 -25px;
 }

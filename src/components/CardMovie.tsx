@@ -1,7 +1,7 @@
-import IMovies from '../interfaces/MovieInterface';
-import {ImgMovieApi} from '../api/imgMovieApi';
+import { IMovie } from '../interfaces/MovieInterface';
+import { ImgMovieApi } from '../api/imgMovieApi';
 
-const CardMovie = (props: { movie: IMovies }) => {
+const CardMovie = (props: { movie: IMovie }) => {
   const { movie } = props;
 
   return (

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const urlNews: string = 'https://newsapi.org/v2/everything';
-const API_KEY: string | undefined = process.env.REACT_APP_API_KEY;
+const API_KEY: string | undefined = process.env.REACT_APP_API_NEWS_KEY;
 // const querySearch: string | null = 'Ps4';
 const pagesShow: number = 20;
 
@@ -21,7 +21,7 @@ export const fetchNews = async (query: string) => {
     },
   });
 
- // console.log('data', data);
+  // console.log('data', data);
 
   return data;
 };

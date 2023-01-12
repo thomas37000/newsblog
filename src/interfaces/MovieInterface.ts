@@ -1,6 +1,7 @@
-export default interface IMovie {
+export interface IMovie {
   backdrop_path: string;
   id: string | undefined;
+  genre_ids: Genres;
   original_language: string;
   original_title: string;
   overview: string;
@@ -11,4 +12,9 @@ export default interface IMovie {
   video: boolean;
   vote_average?: number;
   vote_count?: number;
+}
+
+export interface Genres {
+  id: number;
+  name: string;
 }

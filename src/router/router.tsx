@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home';
 import Search from '../components/Search';
-import Coins from '../pages/Coins';
+// import Coins from '../pages/Coins';
 import Movies from '../pages/Movies';
 import Nav from '../components/Nav';
+import CoinsGecko from '../pages/CoinsGecko';
 
 const Routter = () => {
   return (
@@ -30,7 +31,7 @@ const Routter = () => {
           />
 
           <Route path='movies' element={<Movies />} />
-          <Route path='coins' element={<Coins />} />
+          <Route path='coins' element={<CoinsGecko />} />
         </Routes>
       </main>
     </BrowserRouter>

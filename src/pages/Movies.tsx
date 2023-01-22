@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { IMovie } from '../interfaces/MovieInterface';
-import CardMovie from '../components/CardMovie';
+import CardMovie from '../components/Cards/CardMovie';
 import networkError from '../assets/network-error.jpg';
 import FilterMoviesByGenre from '../components/FilterMovies';
 
@@ -34,7 +34,7 @@ const Movies: React.FunctionComponent = () => {
           setError('');
           setMovies(res.data.results);
           setFiltered(res.data.results);
-          console.log('genre_ids', res.data.results[0].genre_ids);
+          // console.log('genre_ids', res.data.results[0].genre_ids);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));

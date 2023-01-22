@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import IArticle from '../interfaces/ArticleInterface';
 import { IMovie } from '../interfaces/MovieInterface';
 import IFavorite from '../interfaces/FavoriteInterface';
 import { fetchNews } from '../api/api';
-import CardArticle from '../components/CardArticle';
-import networkError from '../assets/network-error.jpg';
-import CardMovie from '../components/CardMovie';
+import CardArticle, { IArticleCategory } from '../components/Cards/CardArticle';
+import networkError from '../assets/placeholder.png';
+import CardMovie from '../components/Cards/CardMovie';
 
 const Home: React.FunctionComponent = () => {
   const [news, setNews] = useState<IArticle[] | null>(null);
+  // const [news, setNews] = useState<IArticleCategory[] | null>(null);
   const [movies, setMovies] = useState<IMovie[]>([]);
   const [articles, setArticles] = useState<string>('');
   const [newsShow, setNewsShow] = useState<number | any>(50);
@@ -17,13 +19,9 @@ const Home: React.FunctionComponent = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   /******************************/
-  const Url: string = 'https://newsapi.org/v2/everything';
+  const Url: string = 'https://newsapi.org/v2/top-headlines';
 
-  /******************************/
-  // ne marche pas avec query ?
-  const UrlCountry: string =
-    'https://newsapi.org/v2/top-headlines?country=fr&everything';
-  /******************************/
+  const UrlCountry: string = `${Url}?country=fr&everything`;
 
   const query: string | null = '';
 
@@ -33,17 +31,40 @@ const Home: React.FunctionComponent = () => {
     .toISOString()
     .substr(0, 10);
 
+  /*************** TODO ***************/
+  // ne marche pas avec query ?
+  // const UrlQuerySearch: string = `${Url}?q=skateboard&apiKey=${API_KEY}`;
+
+  /**************** par noms de domaines**************/
+  // const UrlWeb: string = https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${API_KEY}';
+
+  /**************** par sources**************/
+  // const UrlSources: string = `${Url}/sources?category=general&apiKey=${API_KEY}`;
+
+  /**************** par catégories **************/
+  // const UrlCatgory: string = `${Url}?country=fr&category=entertainment&apiKey=${API_KEY}`;
+
+  /*
+   * The category you want to get headlines for.
+   * Possible options: business / entertainment / general / health / science / sports / technology.
+   * Note: you can't mix this param with the sources param.
+   */
+
   useEffect(() => {
     const loadData = () => {
       setLoading(true);
       axios
         .get(
-          `${UrlCountry}?q=${query}&from=${date}&sortBy=publishedAt&pageSize=${newsShow}&apiKey=${API_KEY}`
+          // `${UrlCountry}?q=${query}&from=${date}&sortBy=publishedAt&pageSize=${newsShow}&apiKey=${API_KEY}`
+          // `${UrlSources}/sources?category=general&apiKey=${API_KEY}`
+          `${Url}?country=fr&category=entertainment&apiKey=${API_KEY}`
         )
         .then((res) => {
           setError('');
-          // console.log('DATA', res.data.articles);
+          console.log('DATA', res.data.articles);
+          //  console.log('catégories', res.data.sources);
           setNews(res.data.articles);
+          //setNews(res.data.sources);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));
@@ -77,9 +98,12 @@ const Home: React.FunctionComponent = () => {
 
   const fetchMovies =
     movies &&
-    movies.slice(0, 1).map((movie, i) => {
-      return <CardMovie key={i} movie={movie} />;
-    });
+    movies
+      .filter((movie: any) => movie.vote_average >= 7.5)
+      .slice(0, 3)
+      .map((movie, i) => {
+        return <CardMovie key={i} movie={movie} />;
+      });
 
   /*********** SEARCH *************/
 
@@ -128,7 +152,38 @@ const Home: React.FunctionComponent = () => {
   return (
     <>
       {/* COINS */}
+
       {/* CINEMA */}
+      <div
+        className='flex justify-center p-4 my-8 text-sm text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-800 dark:text-gray-300'
+        role='alert'
+      >
+        <svg
+          aria-hidden='true'
+          className='flex-shrink-0 inline w-5 h-5 mr-3'
+          fill='currentColor'
+          viewBox='0 0 20 20'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            fill-rule='evenodd'
+            d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z'
+            clip-rule='evenodd'
+          ></path>
+        </svg>
+        <span className='sr-only'>Info</span>
+        <div>
+          <span className='font-medium'></span> Envie d'aller voir un film voici
+          les 3 meilleurs films récents les mieux notés par les internautes.{' '}
+          <p>
+            Sinon allez voir les autres films sur la page{' '}
+            <Link to='/movies' className='text-red-600'>
+              Cinéma
+            </Link>
+          </p>
+        </div>
+      </div>
+
       <div className='flex flex-wrap space-x-4 space-y-4'>{fetchMovies}</div>
       {/* NEWS */}
       <div className='mt-4'>

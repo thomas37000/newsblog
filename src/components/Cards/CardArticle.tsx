@@ -1,9 +1,20 @@
-import IArticle from '../interfaces/ArticleInterface';
-import IFavorite from '../interfaces/FavoriteInterface';
-import placeholder from '../assets/placeholder.png';
+import IArticle from '../../interfaces/ArticleInterface';
+import IFavorite from '../../interfaces/FavoriteInterface';
+import placeholder from '../../assets/placeholder.png';
 import './Card.css';
 
+export interface IArticleCategory {
+  category: string;
+  country: string;
+  description: string;
+  id: string;
+  language: string;
+  name: string;
+  url: string;
+}
+
 const CardArticle = (props: { article: IArticle }) => {
+  // const CardArticle = (props: { article: IArticleCategory }) => {
   const { article } = props;
 
   const likeBtn = document.getElementById('like') as HTMLButtonElement | null;

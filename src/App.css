@@ -37,7 +37,6 @@
 }
 
 .movies::before,
-.crypto::before,
 .meteo::before {
   content: '';
   display: block;
@@ -55,16 +54,8 @@
   background-image: url('https://media.istockphoto.com/id/1336937059/photo/film-reels-on-black-background-movie-video-and-cinema-prodaction-and-edition-concept.jpg?b=1&s=170667a&w=0&k=20&c=3Y_OD6qSJIP-9DNcNk-yIZ7CrcOJOLpFr2jfWIbegZA=');
 } */
 
-.crypto::before {
-  background-image: url('https://thumbs.dreamstime.com/b/bitcoin-pi%C3%A8ce-sur-fond-crypto-monnaie-graphique-de-n%C3%A9gociation-l-%C3%A9cran-ordinateur-finance-d-investissement-la-num%C3%A9rique-argent-233356324.jpg');
-}
-
 .meteo::before {
   background-image: url('https://paysages.photos/wp-content/uploads/2017/06/paysage-nature-2-1-1024x684.jpg');
-}
-
-.crypto {
-  position: relative;
 }
 
 .api-error {

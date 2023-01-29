@@ -32,77 +32,6 @@ const CoinsGecko: React.FunctionComponent = () => {
     loadCoins();
   }, []);
 
-  // TODO afficher le component avec les props !
-  const fetchCoins = (
-    <div className='flex flex-col'>
-      <div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>
-        <div className='inline-block min-w-full py-2 sm:px-6 lg:px-8'>
-          <div className='overflow-hidden'>
-            <table className='min-w-full'>
-              <thead className='bg-white border-b'>
-                <tr>
-                  <th
-                    scope='col'
-                    className='px-6 py-4 text-sm font-medium text-left text-gray-900'
-                  >
-                    #
-                  </th>
-                  <th
-                    scope='col'
-                    className='px-6 py-4 text-sm font-medium text-left text-gray-900'
-                  >
-                    Coin
-                  </th>
-                  <th
-                    scope='col'
-                    className='px-6 py-4 text-sm font-medium text-left text-gray-900'
-                  >
-                    Price
-                  </th>
-                  <th
-                    scope='col'
-                    className='px-6 py-4 text-sm font-medium text-left text-gray-900'
-                  >
-                    Mkt CAp
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {coins &&
-                  coins.map((coin) => (
-                    <tr className='bg-gray-100 border-b'>
-                      <td className='px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap'>
-                        <img
-                          className='w-8 h-8 rounded-full'
-                          src={coin.image}
-                          alt={coin.name}
-                        />
-                      </td>
-                      <td className='px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap'>
-                        {coin.name}
-                      </td>
-                      <td className='px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap'>
-                        {coin.current_price}{' '}
-                        <span className='text-sm font-medium text-gray-900 whitespace-nowrap'>
-                          $
-                        </span>
-                      </td>
-                      <td className='px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap'>
-                        {coin.market_cap}{' '}
-                        <span className='text-sm font-medium text-gray-900 whitespace-nowrap'>
-                          $
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
   if (loading) return <p>"Loading ..."</p>;
   if (error !== '')
     return (
@@ -119,11 +48,10 @@ const CoinsGecko: React.FunctionComponent = () => {
 
   return (
     <div className='mt-4 crypto'>
-      <h2 className='mt-0 mb-2 text-5xl font-normal leading-normal text-sky-800'>
+      <h2 className='mt-0 mb-2 text-5xl font-normal leading-normal text-sky-400'>
         Les Cryptos du moment
       </h2>
-
-      <div className='flex flex-wrap space-x-4 space-y-4'>{fetchCoins}</div>
+      <TableCoinGecko coins={coins} />
     </div>
   );
 };

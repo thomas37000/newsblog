@@ -34,18 +34,27 @@ const Movies: React.FunctionComponent = () => {
           setError('');
           setMovies(res.data.results);
           setFiltered(res.data.results);
+          console.log('Films', res.data.results);
           // console.log('genre_ids', res.data.results[0].genre_ids);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));
 
       return () => {
+        /*
+         * controller.abort() est une fonction de nettoyage
+         * utilisée pour annuler la requête Axios en cours lorsque le composant est démonté
+         * ou que le hook useEffect est re-évalué.
+         * Cela évite les fuites de mémoire et les erreurs potentielles.
+         * En utilisant controller.abort(), vous annulez la requête en cours
+         * et libérez les ressources utilisées pour la requête.
+         */
         controller.abort();
       };
     };
 
     loadMovies();
-  }, []);
+  }, [API_MOVIE_KEY, language, popularity, pagesShow, monetisation]);
 
   const fetchMovies =
     filtered &&

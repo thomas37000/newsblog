@@ -15,6 +15,7 @@ export interface IMovie {
 }
 
 export interface Genres {
+  includes(id: string | undefined): unknown;
   id: number;
   name: string;
 }

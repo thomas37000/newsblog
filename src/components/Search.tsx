@@ -13,7 +13,7 @@ const Search: React.FC<IWeather> = () => {
       const res = await fetchWeather(cities);
       setWeather(res);
       setCities('');
-      console.log('api', res);
+      //  console.log('api', res);
     }
   };
 

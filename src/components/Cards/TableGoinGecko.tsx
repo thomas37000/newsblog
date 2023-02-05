@@ -44,16 +44,6 @@ const TableCoinGecko: React.FC<ICoinGeckoTable> = ({ coins }) => {
 
   return (
     <>
-      <div>
-        <button
-          onClick={() =>
-            setFilters({ ...filters, lowPrice: !filters.lowPrice })
-          }
-        >
-          Low Price
-        </button>
-      </div>
-
       <div className='flex flex-col'>
         <div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>
           <div className='inline-block min-w-full py-2 sm:px-6 lg:px-8'>
@@ -195,7 +185,7 @@ const TableCoinGecko: React.FC<ICoinGeckoTable> = ({ coins }) => {
                     >
                       last 7 Days
                       <svg
-                        className='w-6 h-6 dark:text-white ml-2'
+                        className='w-6 h-6 ml-2 dark:text-white'
                         fill='none'
                         stroke='currentColor'
                         viewBox='0 0 24 24'
@@ -219,7 +209,7 @@ const TableCoinGecko: React.FC<ICoinGeckoTable> = ({ coins }) => {
                       </td>
                       <td className='flex content-center px-6 py-4 text-sm text-gray-900 whitespace-nowrap'>
                         <img
-                          className='w-6 h-6 rounded-full mr-2'
+                          className='w-6 h-6 mr-2 rounded-full'
                           src={coin.image}
                           alt={coin.name}
                         />

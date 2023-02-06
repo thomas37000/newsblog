@@ -51,7 +51,7 @@ const Search: React.FC<IWeather> = () => {
 
       {weather && weather.main && (
         <>
-          <div className='grid items-center justify-center p-4 mb-4'>
+          <div className='grid items-center p-4 mb-4'>
             <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700'>
               <div className='px-6 py-4'>
                 <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>

@@ -68,9 +68,9 @@ const News: React.FunctionComponent = () => {
   // apinews gratuit en localhost payant si build
   if (error !== '')
     return (
-      <div>
+      <>
         <div
-          className='flex items-center px-4 py-3 text-sm font-bold text-white bg-blue-500'
+          className='flex items-center justify-center px-4 py-3 text-sm font-bold text-white bg-blue-500'
           role='alert'
         >
           <svg
@@ -83,8 +83,15 @@ const News: React.FunctionComponent = () => {
           <p>
             {' '}
             Impossible d'afficher les articles de https://newsapi.org/ en mode
-            gratuit seulement en localhost
+            gratuit seulement en localhost,
           </p>
+        </div>
+
+        <div
+          className='flex items-center justify-center px-4 py-3 text-sm font-bold text-white bg-blue-500'
+          role='alert'
+        >
+          <p>voir les captures d'écran.</p>
         </div>
 
         <img
@@ -102,8 +109,9 @@ const News: React.FunctionComponent = () => {
           src={apiNewsPreview2}
           alt='Preview of what it looks like on localhost with newsapi.org'
         />
-      </div>
+      </>
     );
+
   if (!news) return <p>"Problème avec l' Api..."</p>;
 
   return (

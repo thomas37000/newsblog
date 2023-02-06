@@ -7,7 +7,6 @@ import TableCoinGecko from '../components/Cards/TableGoinGecko';
 
 const CoinsGecko: React.FunctionComponent = () => {
   const [coins, setCoins] = useState<ICoinGecko[]>([]);
-  const [time, setTime] = React.useState<string>('');
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -23,7 +22,7 @@ const CoinsGecko: React.FunctionComponent = () => {
         .then((res) => {
           setError('');
           setCoins(res.data);
-          console.log(res.data);
+          // console.log(res.data);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));

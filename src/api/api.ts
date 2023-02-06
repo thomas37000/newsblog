@@ -21,7 +21,5 @@ export const fetchNews = async (query: string) => {
     },
   });
 
-  // console.log('data', data);
-
   return data;
 };

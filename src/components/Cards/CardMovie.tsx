@@ -15,8 +15,8 @@ const CardMovie = (props: { movie: IMovie }) => {
         </h5>
 
         <div className='mb-2'>
-          note des spectateurs :{' '}
-          <div className='flex items-center'>
+          note des spectateurs : <span className='font-bold text-yellow-500'>{movie.vote_average}</span>
+          {/* <div className='flex items-center'>
             <svg
               aria-hidden='true'
               className='w-5 h-5 text-yellow-400'
@@ -70,7 +70,7 @@ const CardMovie = (props: { movie: IMovie }) => {
             <p className='ml-2 text-sm font-medium text-gray-500 dark:text-gray-400'>
               {movie.vote_average}
             </p>
-          </div>
+          </div> */}
         </div>
 
         <h5 className='mb-2 text-xl font-bold tracking-tight text-yellow-400 dark:text-white'>

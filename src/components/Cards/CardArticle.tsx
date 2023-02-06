@@ -1,5 +1,4 @@
 import IArticle from '../../interfaces/ArticleInterface';
-import IFavorite from '../../interfaces/FavoriteInterface';
 import placeholder from '../../assets/placeholder.png';
 import './Card.css';
 
@@ -14,19 +13,9 @@ export interface IArticleCategory {
 }
 
 const CardArticle = (props: { article: IArticle }) => {
-  // const CardArticle = (props: { article: IArticleCategory }) => {
   const { article } = props;
 
-  const likeBtn = document.getElementById('like') as HTMLButtonElement | null;
-
-  // const likeArticle = () => {
-  //   if (like) {
-  //     // ? === optional chaning operator => Object is possibly 'null'
-  //     likeBtn?.setAttribute('disabled', '');
-  //   }
-  // };
-
-  // likeBtn?.removeAttribute('disabled');
+  // const likeBtn = document.getElementById('like') as HTMLButtonElement | null;
 
   return (
     <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700'>

@@ -1,30 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ICoin from '../interfaces/Coins/CoinsApi/CoinSymbolsInterface';
 import ICoinExchange from '../interfaces/Coins/CoinsApi/CoinExchangeInterface';
 import CardCoin from '../components/Cards/CardCoins';
 import '../App.css';
 import requestError from '../assets/429.png';
-import ICoinExchangeRate from '../interfaces/Coins/CoinsApi/CoinsExchangeRate';
 
 const Coins: React.FunctionComponent = () => {
   // const [coins, setCoins] = useState<ICoinExchangeRate[]>([]);
   const [coins, setCoins] = useState<ICoinExchange[]>([]);
-  const [time, setTime] = React.useState<string>('');
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
   const urlCoinApi: string = 'https://rest.coinapi.io/v1/exchanges';
   //'https://rest.coinapi.io/v1/exchangerate/asset_id_base=BTC/asset_id_quote=USD';
-  const urlCoinApiRate: string =
-    'https://rest.coinapi.io/v1/exchangerate/BTC/USD';
   const coinTokens: string | undefined = process.env.REACT_APP_API_COIN_KEY;
 
-  const options = {
-    hostname: 'https://rest.coinapi.io',
-    path: '/v1/exchangerate/BTC/USD',
-    headers: { 'X-CoinAPI-Key': `${coinTokens}` },
-  };
 
   useEffect(() => {
     const loadCoins = () => {
@@ -37,21 +27,14 @@ const Coins: React.FunctionComponent = () => {
         .then((res) => {
           setError('');
           setCoins(res.data);
-          setTime(new Date().toLocaleTimeString());
-          console.log(res.data);
+          // console.log(res.data);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));
     };
 
     loadCoins();
-  }, []);
-
-  // const fetchCoins =
-  //   coins &&
-  //   coins.slice(0, 12).map((coin, i) => {
-  //     return <CardCoin key={i} coin={coin} />;
-  //   });
+  }, [coinTokens]);
 
   const fetchCoins =
     coins &&

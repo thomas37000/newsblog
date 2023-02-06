@@ -6,12 +6,14 @@ const Nav = () => {
   return (
     <>
       <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
+        <Link to='/' className='name-link'>
+          <img src={logo} className='App-logo' alt='logo' />
+        </Link>
 
         <nav>
           <div className='nav-links'>
             <Link to='/' className='name-link'>
-              Home
+              News
             </Link>
           </div>
 

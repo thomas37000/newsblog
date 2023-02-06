@@ -34,7 +34,7 @@ const Movies: React.FunctionComponent = () => {
           setError('');
           setMovies(res.data.results);
           setFiltered(res.data.results);
-          console.log('Films', res.data.results);
+          // console.log('Films', res.data.results);
           // console.log('genre_ids', res.data.results[0].genre_ids);
         })
         .catch((err) => setError(err.message))
@@ -62,11 +62,6 @@ const Movies: React.FunctionComponent = () => {
       return <CardMovie key={i} movie={movie} />;
     });
 
-  // const handleGenreChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setGenre(+e.target.value);
-  //   console.log(+e.target.value);
-  // };
-
   if (loading) return <p>"Loading ..."</p>;
   if (error !== '')
     return (
@@ -82,44 +77,6 @@ const Movies: React.FunctionComponent = () => {
       <h2 className='mt-0 mb-2 text-5xl font-normal leading-normal text-sky-800'>
         Les Films du moment
       </h2>
-
-      {/* <div>
-        <div className='flex items-center mb-4'>
-          <input
-            id='default-radio-1'
-            type='radio'
-            name='genre'
-            value='Action'
-            // checked={genre === 28}
-            // onChange={handleGenreChange}
-            className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
-          />
-          <label
-            htmlFor='default-radio-1'
-            className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
-          >
-            Action
-          </label>
-        </div>
-
-        <div className='flex items-center'>
-          <input
-            id='default-radio-2'
-            type='radio'
-            name='genre'
-            value='Horror'
-            // checked={genre === 27}
-            // onChange={handleGenreChange}
-            className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
-          />
-          <label
-            htmlFor='default-radio-2'
-            className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
-          >
-            Horreur
-          </label>
-        </div>
-      </div> */}
 
       <FilterMoviesByGenre
         movies={movies}

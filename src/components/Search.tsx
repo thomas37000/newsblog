@@ -28,14 +28,13 @@ const Search: React.FC<IWeather> = () => {
     <>
       <div className='mt-4 meteo'>
         <div className='mb-4'>
-          <label
-            className='block mb-2 text-sm font-bold text-gray-700'
-            htmlFor='météo'
-          >
-            <span className='text-4xl font-extrabold tracking-tight text-blue-400'>
-              Météo
-            </span>
-          </label>
+          <div className='mb-4'>
+            Entrer le nom de votre ville puis tapez Entrée pour voir le résultat
+          </div>
+
+          <h2 className='mt-0 mb-2 text-5xl font-normal leading-normal text-white'>
+            Météo
+          </h2>
 
           <input
             type='text'
@@ -52,33 +51,37 @@ const Search: React.FC<IWeather> = () => {
 
       {weather && weather.main && (
         <>
-          <div className='grid items-center justify-center p-4 mb-4 bg-white border rounded-lg shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700'>
-            <h5 className='text-4xl font-bold leading-none text-gray-900 dark:text-white'>
-              {regexCity}
-            </h5>
-            <div className='items-baseline mt-4 text-gray-900 dark:text-white'>
-              <span className='text-5xl font-extrabold tracking-tight'>
-                {Math.round(weather.main.temp!)}
-              </span>
-              <span className='ml-1 text-xl font-normal text-gray-500 dark:text-gray-400'>
-                <sup>&deg;C</sup>
-              </span>
-            </div>
+          <div className='grid items-center justify-center p-4 mb-4'>
+            <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700'>
+              <div className='px-6 py-4'>
+                <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
+                  {regexCity}
+                </h5>
 
-            <ul role='list' className='space-y-5 my-7'>
-              <li className='flex space-x-3'>
-                <span className='text-base text-gray-700'>
-                  Ressenti {weather.main.feels_like}
-                  <sup>&deg;C</sup>
-                </span>
-              </li>
-              <li className='flex space-x-3'>
-                <span className='text-base text-gray-700'>
-                  Rafales {weather.wind.speed} km/h
-                </span>
-              </li>
-              {/* <li className='flex space-x-3'>{weather.weather.main}</li> */}
-            </ul>
+                <div className='items-baseline mt-4 text-gray-900 dark:text-white'>
+                  <span className='text-5xl font-extrabold tracking-tight'>
+                    {Math.round(weather.main.temp!)}
+                  </span>
+                  <span className='ml-1 text-xl font-normal text-gray-500 dark:text-gray-400'>
+                    <sup>&deg;C</sup>
+                  </span>
+                </div>
+
+                <ul role='list' className='space-y-5 my-7'>
+                  <li className='flex space-x-3'>
+                    <span className='text-base text-gray-700'>
+                      Ressenti {weather.main.feels_like}
+                      <sup>&deg;C</sup>
+                    </span>
+                  </li>
+                  <li className='flex space-x-3'>
+                    <span className='text-base text-gray-700'>
+                      Rafales {weather.wind.speed} km/h
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </>
       )}

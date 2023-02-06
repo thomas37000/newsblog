@@ -6,13 +6,13 @@ const Nav = () => {
   return (
     <>
       <header className='App-header'>
-        <Link to='/movies' className='name-link'>
+        <Link to='/' className='name-link'>
           <img src={logo} className='App-logo' alt='logo' />
         </Link>
 
         <nav>
           <div className='nav-links'>
-            <Link to='/movies' className='name-link'>
+            <Link to='/' className='name-link'>
               Cinéma
             </Link>
           </div>

@@ -11,7 +11,7 @@ const Routter = () => {
       <Nav />
       <main>
         <Routes>
-          <Route path='movies' element={<Movies />} />
+          <Route index element={<Movies />} />
           <Route path='coins' element={<CoinsGecko />} />
           <Route
             path='meteo'

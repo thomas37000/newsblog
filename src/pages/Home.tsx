@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IArticle from '../interfaces/ArticleInterface';
-import { IMovie } from '../interfaces/MovieInterface';
 import CardArticle from '../components/Cards/CardArticle';
-import { fetchNews } from '../api/api';
 import networkError from '../assets/placeholder.png';
-import CardMovie from '../components/Cards/CardMovie';
 
 const Home: React.FunctionComponent = () => {
   const [news, setNews] = useState<IArticle[] | null>(null);
-  // const [news, setNews] = useState<IArticleCategory[] | null>(null);
-  const [movies, setMovies] = useState<IMovie[]>([]);
-  const [articles, setArticles] = useState<string>('');
-  const [newsShow, setNewsShow] = useState<number | any>(50);
+  const [newsShow] = useState<number | any>(50);
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -46,23 +40,6 @@ const Home: React.FunctionComponent = () => {
     news.map((article, i) => {
       return <CardArticle key={i} article={article} />;
     });
-
-  const urlMovieDbApi: string = 'https://api.themoviedb.org/3/discover/movie';
-  const API_MOVIE_KEY: string | undefined = process.env.REACT_APP_API_MOVIE_KEY;
-  const language: string = 'en-US';
-  const popularity: string = 'popularity.desc';
-  const pagesShow: number = 1;
-  const monetisation: string = 'flatrate';
-
-  useEffect(() => {
-    fetch(
-      `${urlMovieDbApi}?api_key=${API_MOVIE_KEY}&language=${language}&sort_by=${popularity}&include_adult=false&include_video=false&page=${pagesShow}&with_watch_monetization_types=${monetisation}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setMovies(data.results);
-      });
-  }, [API_MOVIE_KEY]);
 
   /*********** SEARCH *************/
 

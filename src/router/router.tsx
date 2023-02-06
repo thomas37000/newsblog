@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from '../pages/Home';
+import News from '../pages/News';
 import Search from '../components/Search';
-// import Coins from '../pages/Coins';
 import Movies from '../pages/Movies';
 import Nav from '../components/Nav';
 import CoinsGecko from '../pages/CoinsGecko';
@@ -12,7 +11,8 @@ const Routter = () => {
       <Nav />
       <main>
         <Routes>
-          <Route index element={<Home />} />
+          <Route path='movies' element={<Movies />} />
+          <Route path='coins' element={<CoinsGecko />} />
           <Route
             path='meteo'
             element={
@@ -29,9 +29,7 @@ const Routter = () => {
               />
             }
           />
-
-          <Route path='movies' element={<Movies />} />
-          <Route path='coins' element={<CoinsGecko />} />
+          <Route path='news' element={<News />} />
         </Routes>
       </main>
     </BrowserRouter>

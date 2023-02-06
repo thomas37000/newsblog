@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IArticle from '../interfaces/ArticleInterface';
 import CardArticle from '../components/Cards/CardArticle';
-import networkError from '../assets/placeholder.png';
+import notAllowed from '../assets/not allowed.png';
+import apiNewsPreview from '../assets/apinews apperçu.png';
 
-const Home: React.FunctionComponent = () => {
+const News: React.FunctionComponent = () => {
   const [news, setNews] = useState<IArticle[] | null>(null);
   const [newsShow] = useState<number | any>(50);
   const [error, setError] = useState<string>('');
@@ -63,22 +64,30 @@ const Home: React.FunctionComponent = () => {
   // };
 
   if (loading) return <p>"Loading ..."</p>;
+  // apinews gratuit en localhost payant si build
   if (error !== '')
     return (
-      <p>
-        {error}
-        <img className='rounded-t-lg' src={networkError} alt='Networ error' />
-      </p>
+      <div>
+        Impossible d'afficher les articles de https://newsapi.org/ en mode
+        gratuit seulement en localhost
+        
+        <img
+          className='mt-2 rounded-t-lg'
+          src={notAllowed}
+          alt='unable to deploy the API on the free pricing plan as apinews.org is not permitted for builds in the testing and development phase'
+        />
+        <img
+          className='rounded-t-lg'
+          src={apiNewsPreview}
+          alt='Preview of what it looks like on localhost'
+        />
+        
+      </div>
     );
   if (!news) return <p>"Problème avec l' Api..."</p>;
 
   return (
     <>
-      {/* COINS */}
-
-      {/* CINEMA */}
-
-      {/* NEWS */}
       <h2 className='mt-0 mb-2 text-5xl font-normal leading-normal text-sky-800'>
         l' Actualité en direct
       </h2>
@@ -88,4 +97,4 @@ const Home: React.FunctionComponent = () => {
   );
 };
 
-export default Home;
+export default News;

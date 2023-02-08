@@ -35,7 +35,6 @@ const Movies: React.FunctionComponent = () => {
           setMovies(res.data.results);
           setFiltered(res.data.results);
           // console.log('Films', res.data.results);
-          // console.log('genre_ids', res.data.results[0].genre_ids);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));

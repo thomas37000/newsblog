@@ -4,7 +4,6 @@ import IArticle from '../interfaces/ArticleInterface';
 import CardArticle from '../components/Cards/CardArticle';
 import notAllowed from '../assets/not allowed.png';
 import apiNewsPreview from '../assets/preview.png';
-import apiNewsPreview2 from '../assets/apinews apperçu.png';
 
 const News: React.FunctionComponent = () => {
   const [news, setNews] = useState<IArticle[] | null>(null);
@@ -102,11 +101,6 @@ const News: React.FunctionComponent = () => {
         <img
           className='rounded-t-lg'
           src={apiNewsPreview}
-          alt='Preview of what it looks like on localhost with newsapi.org'
-        />
-        <img
-          className='rounded-t-lg'
-          src={apiNewsPreview2}
           alt='Preview of what it looks like on localhost with newsapi.org'
         />
       </>

@@ -22,7 +22,7 @@ const CoinsGecko: React.FunctionComponent = () => {
         .then((res) => {
           setError('');
           setCoins(res.data);
-          // console.log(res.data);
+          console.log(res.data);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));

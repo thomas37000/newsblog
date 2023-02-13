@@ -4,6 +4,7 @@ import Search from '../components/Search';
 import Movies from '../pages/Movies';
 import Nav from '../components/Nav';
 import CoinsGecko from '../pages/CoinsGecko';
+import ChartJs from '../pages/Chart';
 
 const Routter = () => {
   return (
@@ -30,6 +31,7 @@ const Routter = () => {
             }
           />
           <Route path='news' element={<News />} />
+          <Route path='chart' element={<ChartJs />} />
         </Routes>
       </main>
     </BrowserRouter>

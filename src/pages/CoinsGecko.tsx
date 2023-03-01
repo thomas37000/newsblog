@@ -33,6 +33,7 @@ const CoinsGecko: React.FunctionComponent = () => {
 
   if (loading) return <p>"Loading ..."</p>;
   if (error !== '')
+
     return (
       <div className='max-w-sm overflow-hidden rounded shadow-lg api-error'>
         <img className='w-full' src={requestError} alt='429 too many request' />

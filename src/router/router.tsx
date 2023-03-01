@@ -4,7 +4,8 @@ import Search from '../components/Search';
 import Movies from '../pages/Movies';
 import Nav from '../components/Nav';
 import CoinsGecko from '../pages/CoinsGecko';
-import ChartJs from '../pages/Chart';
+import CoinDetail from '../pages/CoinDetail';
+import Home from '../pages/Home';
 
 const Routter = () => {
   return (
@@ -12,8 +13,10 @@ const Routter = () => {
       <Nav />
       <main>
         <Routes>
-          <Route index element={<Movies />} />
+        <Route index element={<Home />} />
+          <Route path='movies' element={<Movies />} />
           <Route path='coins' element={<CoinsGecko />} />
+          <Route path='coin/:id' element={<CoinDetail />} />
           <Route
             path='meteo'
             element={
@@ -31,7 +34,6 @@ const Routter = () => {
             }
           />
           <Route path='news' element={<News />} />
-          <Route path='chart' element={<ChartJs />} />
         </Routes>
       </main>
     </BrowserRouter>

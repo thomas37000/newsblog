@@ -12,23 +12,20 @@ const Nav = () => {
 
         <nav>
           <div className='nav-links'>
-            <Link to='/' className='name-link'>
+            <Link to='/movies' className='name-link'>
               Cinéma
             </Link>
           </div>
-
           <div className='nav-links'>
             <Link to='/coins' className='name-link'>
               Cryptomonnaies
             </Link>
           </div>
-
           <div className='nav-links'>
             <Link to='/meteo' className='name-link'>
               Météo
             </Link>
           </div>
-
           <div className='nav-links'>
             <Link to='/news' className='name-link'>
               News

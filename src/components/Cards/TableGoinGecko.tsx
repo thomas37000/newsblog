@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ICoinGecko from '../../interfaces/Coins/GeckoApi/CoinsInterfaceGecko';
 
 interface ICoinGeckoTable {
@@ -203,21 +204,26 @@ const TableCoinGecko: React.FC<ICoinGeckoTable> = ({ coins }) => {
                 </thead>
                 <tbody>
                   {filteredCoins.map((coin, index) => (
-                    <tr key={index} className='bg-gray-100 border-b'>
+                    <tr
+                      key={index}
+                      className='bg-gray-100 border-b hover:bg-gray-50 dark:hover:bg-gray-600'
+                    >
                       <td className='px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap'>
                         {coin.market_cap_rank}
                       </td>
-                      <td className='flex content-center px-6 py-4 text-sm text-gray-900 whitespace-nowrap'>
-                        <img
-                          className='w-6 h-6 mr-2 rounded-full'
-                          src={coin.image}
-                          alt={coin.name}
-                        />
-                        {coin.name}
-                        <div className='ml-2 font-light'>
-                          {coin.symbol.toUpperCase()}
-                        </div>
-                      </td>
+                      <Link to={`/coin/${coin.id}`} key={coin.id}>
+                        <td className='flex content-center px-6 py-4 text-sm text-gray-900 whitespace-nowrap'>
+                          <img
+                            className='w-6 h-6 mr-2 rounded-full'
+                            src={coin.image}
+                            alt={coin.name}
+                          />
+                          {coin.name}
+                          <div className='ml-2 font-light'>
+                            {coin.symbol.toUpperCase()}
+                          </div>
+                        </td>
+                      </Link>
                       <td className='px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap'>
                         <span className='font-medium'>$ </span>
                         {coin.current_price.toLocaleString('en-US')}

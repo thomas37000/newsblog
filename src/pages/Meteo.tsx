@@ -4,7 +4,7 @@ import { IWeather } from '../interfaces/WeatherInterface';
 import { fetchWeather } from '../api/weatherApi';
 import '../App.css';
 
-const Search: React.FC<IWeather> = () => {
+const Meteo: React.FC<IWeather> = () => {
   const [cities, setCities] = useState<string>('');
   const [weather, setWeather] = useState<IWeather | undefined>();
 
@@ -79,6 +79,13 @@ const Search: React.FC<IWeather> = () => {
                       Rafales {weather.wind.speed} km/h
                     </span>
                   </li>
+                  {Array.isArray(weather.weather) && weather.weather.length > 0 && (
+                    <img
+                      className='h-auto'
+                      src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                      alt=''
+                    />
+                  )}
                 </ul>
               </div>
             </div>
@@ -89,4 +96,4 @@ const Search: React.FC<IWeather> = () => {
   );
 };
 
-export default Search;
+export default Meteo;

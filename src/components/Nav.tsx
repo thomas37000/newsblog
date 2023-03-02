@@ -1,16 +1,22 @@
 import { Link } from 'react-router-dom';
 import './Nav.css';
-import logo from '../logo.svg';
+import logo from '../assets/logo.png';
 
 const Nav = () => {
   return (
     <>
-      <header className='App-header'>
-        <Link to='/' className='name-link'>
+      <header className='App-header text-gray-500 '>
+        <Link to='/' className='name-link flex items-center justify-center'>
           <img src={logo} className='App-logo' alt='logo' />
+          <span className='ml-4'>News Blog</span>
         </Link>
-
+   
         <nav>
+          <div className='nav-links'>
+            <Link to='/' className='name-link'>
+              Home
+            </Link>
+          </div>
           <div className='nav-links'>
             <Link to='/movies' className='name-link'>
               Cinéma

@@ -6,10 +6,12 @@ import { IMovie } from '../interfaces/MovieInterface';
 import ICoinGecko from '../interfaces/Coins/GeckoApi/CoinsInterfaceGecko';
 import HomeCardMovie from '../components/Cards/HomeCards/HomeCardMovie';
 import HomeCoinList from '../components/Cards/HomeCards/HomeCoinList';
+import { IWeather } from '../interfaces/WeatherInterface';
 
 const Home: React.FunctionComponent = () => {
   const [coins, setCoins] = useState<ICoinGecko[]>([]);
   const [movies, setMovies] = useState<IMovie[]>([]);
+  const [weather, setWeather] = useState<IWeather | undefined>();
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -60,7 +62,7 @@ const Home: React.FunctionComponent = () => {
         .then((res) => {
           setError('');
           setCoins(res.data);
-          console.log(res.data);
+          // console.log(res.data);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));
@@ -68,15 +70,87 @@ const Home: React.FunctionComponent = () => {
 
     loadCoins();
   }, []);
+  const API_WEATHER_KEY: string | undefined =
+    process.env.REACT_APP_API_WEATHER_KEY;
+  const cityQuery: string = `https://api.openweathermap.org/data/2.5/weather?q=Nantes&appid=${API_WEATHER_KEY}&units=metric`;
+
+  useEffect(() => {
+    const loadWeather = () => {
+      setLoading(true);
+
+      axios
+        .get(cityQuery)
+        .then((res) => {
+          setError('');
+          setWeather(res.data);
+          console.log(res.data);
+        })
+        .catch((err) => setError(err.message))
+        .finally(() => setLoading(false));
+    };
+
+    loadWeather();
+  }, []);
+
+  const regexCity = weather && weather.name.replace('Arrondissement de', '');
 
   return (
     <>
-      {/* COINS */}
-      <section className='py-6'>
-        <div className='flex justify-center'>
-          <HomeCoinList coins={coins} />
-        </div>
-      </section>
+      <div className='flex justify-center items-center space-x-40'>
+        {/* COINS */}
+        <section className='py-6'>
+          <div className='flex justify-center'>
+            <HomeCoinList coins={coins} />
+          </div>
+        </section>
+
+        {/* METEO */}
+
+        <section>
+          {weather && weather.main && (
+            <>
+              <div className='flex items-center justify-center mb-4 p-4t'>
+                <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700'>
+                  <div className='px-6 py-4'>
+                    <h5 className='mb-2 text-2xl font-bold tracking-tight text-sky-600 dark:text-white'>
+                      {regexCity}
+                    </h5>
+                    <div className='flex items-center mt-4 text-gray-900 dark:text-white'>
+                      <span className='text-5xl font-extrabold tracking-tight'>
+                        {Math.round(weather.main.temp!)}
+                      </span>
+                      <span className='ml-1 text-xl font-normal text-gray-500 dark:text-gray-400'>
+                        <sup>&deg;C</sup>
+                      </span>
+                      {Array.isArray(weather.weather) &&
+                        weather.weather.length > 0 && (
+                          <img
+                            className='h-auto'
+                            src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                            alt=''
+                          />
+                        )}
+                    </div>
+                    <ul role='list' className='space-y-5 my-7'>
+                      <li className='flex space-x-3'>
+                        <span className='text-base text-gray-700'>
+                          Ressenti {weather.main.feels_like}
+                          <sup>&deg;C</sup>
+                        </span>
+                      </li>
+                      <li className='flex space-x-3'>
+                        <span className='text-base text-gray-700'>
+                          Rafales {weather.wind.speed} km/h
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </section>
+      </div>
 
       {/* CINEMA */}
       <section className='py-6'>

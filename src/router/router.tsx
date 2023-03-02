@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import News from '../pages/News';
-import Search from '../components/Search';
+import Meteo from '../pages/Meteo';
 import Movies from '../pages/Movies';
 import Nav from '../components/Nav';
 import CoinsGecko from '../pages/CoinsGecko';
@@ -20,7 +20,7 @@ const Routter = () => {
           <Route
             path='meteo'
             element={
-              <Search
+              <Meteo
                 main={undefined!}
                 weather={undefined!}
                 id={0}
@@ -29,7 +29,7 @@ const Routter = () => {
                 sys={undefined!}
                 wind={undefined!}
                 cod={undefined!}
-                icon={undefined}
+                icon={undefined!}
               />
             }
           />

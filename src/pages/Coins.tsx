@@ -15,7 +15,6 @@ const Coins: React.FunctionComponent = () => {
   //'https://rest.coinapi.io/v1/exchangerate/asset_id_base=BTC/asset_id_quote=USD';
   const coinTokens: string | undefined = process.env.REACT_APP_API_COIN_KEY;
 
-
   useEffect(() => {
     const loadCoins = () => {
       setLoading(true);
@@ -63,7 +62,7 @@ const Coins: React.FunctionComponent = () => {
 
   return (
     <div className='mt-4 crypto'>
-      <h2 className='mt-0 mb-2 text-5xl font-normal leading-normal text-sky-800'>
+      <h2 className='mt-0 mb-2 text-5xl font-normal leading-normal text-yellow-500'>
         Les Cryptos du moment
       </h2>
 

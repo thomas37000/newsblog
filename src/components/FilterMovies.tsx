@@ -25,7 +25,7 @@ const FilterMoviesByGenre = (props: {
   }, [activeGenre]);
 
   return (
-    <>
+    <div className='w-8/12'>
       <button
         onClick={() => setActiveGenre(0)}
         className='px-4 py-2 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white hover:border-transparent'
@@ -146,7 +146,7 @@ const FilterMoviesByGenre = (props: {
       >
         Film Télé
       </button>
-    </>
+    </div>
   );
 };
 

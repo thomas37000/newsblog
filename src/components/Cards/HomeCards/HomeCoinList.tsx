@@ -11,7 +11,7 @@ const HomeCoinList: React.FC<ICoinGeckoList> = ({ coins }) => {
   return (
     <div className='w-full max-w-md bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700'>
       <div className='flex items-center justify-between mb-4'>
-        <h5 className='text-xl font-bold leading-none text-gray-900 dark:text-white'>
+        <h5 className='text-xl font-bold leading-none text-sky-600 dark:text-white'>
           3 Cryptomonnaies à décourvir
         </h5>
       </div>

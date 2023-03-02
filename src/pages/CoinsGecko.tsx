@@ -48,7 +48,7 @@ const CoinsGecko: React.FunctionComponent = () => {
 
   return (
     <div className='mt-4 crypto'>
-      <h2 className='mt-0 mb-2 text-5xl font-normal leading-normal text-sky-400'>
+      <h2 className='mt-0 mb-2 text-5xl font-normal leading-normal text-sky-600'>
         Les Cryptos du moment
       </h2>
       <TableCoinGecko coins={coins} />

@@ -73,17 +73,19 @@ const Movies: React.FunctionComponent = () => {
 
   return (
     <div className='movies'>
-      <h2 className='mt-0 mb-2 text-5xl font-normal leading-normal text-sky-800'>
+      <h2 className='mt-0 mb-2 text-5xl font-normal leading-normal text-sky-600'>
         Les Films du moment
       </h2>
 
-      <FilterMoviesByGenre
-        movies={movies}
-        setFiltered={setFiltered}
-        activeGenre={activeGenre}
-        setActiveGenre={setActiveGenre}
-      />
-
+      <div className='flex justify-center'>
+        <FilterMoviesByGenre
+          movies={movies}
+          setFiltered={setFiltered}
+          activeGenre={activeGenre}
+          setActiveGenre={setActiveGenre}
+        />
+      </div>
+      
       <div className='flex flex-wrap space-x-4 space-y-4'>{fetchMovies}</div>
     </div>
   );

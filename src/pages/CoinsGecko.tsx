@@ -5,7 +5,7 @@ import requestError from '../assets/429.png';
 import ICoinGecko from '../interfaces/Coins/GeckoApi/CoinsInterfaceGecko';
 import TableCoinGecko from '../components/Cards/TableGoinGecko';
 
-const CoinsGecko: React.FunctionComponent = () => {
+const CoinsGecko: React.FC = () => {
   const [coins, setCoins] = useState<ICoinGecko[]>([]);
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);

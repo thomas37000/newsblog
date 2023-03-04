@@ -8,7 +8,7 @@ import HomeCardMovie from '../components/Cards/HomeCards/HomeCardMovie';
 import HomeCoinList from '../components/Cards/HomeCards/HomeCoinList';
 import { IWeather } from '../interfaces/WeatherInterface';
 
-const Home: React.FunctionComponent = () => {
+const Home: React.FC = () => {
   const [coins, setCoins] = useState<ICoinGecko[]>([]);
   const [movies, setMovies] = useState<IMovie[]>([]);
   const [weather, setWeather] = useState<IWeather | undefined>();
@@ -16,14 +16,6 @@ const Home: React.FunctionComponent = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   /******************************/
-  const Url: string = 'https://newsapi.org/v2/top-headlines';
-  const UrlCountry: string = `${Url}?country=fr&everything`;
-  const query: string | null = '';
-  const API_KEY: string | undefined = process.env.REACT_APP_API_NEWS_KEY;
-  const date = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
-    .toISOString()
-    .substr(0, 10);
-
   const urlMovieDbApi: string = 'https://api.themoviedb.org/3/discover/movie';
   const API_MOVIE_KEY: string | undefined = process.env.REACT_APP_API_MOVIE_KEY;
   const language: string = 'en-US';
@@ -39,7 +31,7 @@ const Home: React.FunctionComponent = () => {
       .then((data) => {
         setMovies(data.results);
       });
-  }, []);
+  }, [API_MOVIE_KEY]);
 
   const fetchMovies =
     movies &&
@@ -62,7 +54,6 @@ const Home: React.FunctionComponent = () => {
         .then((res) => {
           setError('');
           setCoins(res.data);
-          // console.log(res.data);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));
@@ -83,16 +74,18 @@ const Home: React.FunctionComponent = () => {
         .then((res) => {
           setError('');
           setWeather(res.data);
-          console.log(res.data);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));
     };
 
     loadWeather();
-  }, []);
+  }, [cityQuery]);
 
   const regexCity = weather && weather.name.replace('Arrondissement de', '');
+
+  if (loading) return <p>"Loading ..."</p>;
+  if (error !== '') return <p>"Problème avec les Apis..."</p>;
 
   return (
     <>
@@ -131,7 +124,7 @@ const Home: React.FunctionComponent = () => {
                           />
                         )}
                     </div>
-                    <ul role='list' className='space-y-5 my-7'>
+                    <ul className='space-y-5 my-7'>
                       <li className='flex space-x-3'>
                         <span className='text-base text-gray-700'>
                           Ressenti {weather.main.feels_like}

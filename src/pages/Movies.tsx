@@ -5,14 +5,13 @@ import CardMovie from '../components/Cards/CardMovie';
 import networkError from '../assets/network-error.jpg';
 import FilterMoviesByGenre from '../components/FilterMovies';
 
-const Movies: React.FunctionComponent = () => {
+const Movies: React.FC = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
   const [filtered, setFiltered] = useState<IMovie[]>([]);
   const [activeGenre, setActiveGenre] = useState<number>(0);
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
-  // const urlMovieDbApi: string = 'https://api.themoviedb.org/3/discover/movie';
   const urlMovieDbApi: string = 'https://api.themoviedb.org/3/movie/popular';
   const API_MOVIE_KEY: string | undefined = process.env.REACT_APP_API_MOVIE_KEY;
   const language: string = 'en-US';
@@ -34,7 +33,6 @@ const Movies: React.FunctionComponent = () => {
           setError('');
           setMovies(res.data.results);
           setFiltered(res.data.results);
-          // console.log('Films', res.data.results);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));

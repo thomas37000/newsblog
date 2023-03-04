@@ -2,8 +2,6 @@ import { IMovie } from '../../interfaces/MovieInterface';
 import { ImgMovieApi } from '../../api/imgMovieApi';
 import StarRating from 'react-star-ratings';
 
-// const getGenres = require('../../interfaces/genreMovies.json');
-
 const CardMovie = (props: { movie: IMovie }) => {
   const { movie } = props;
 
@@ -24,9 +22,8 @@ const CardMovie = (props: { movie: IMovie }) => {
           <div className='flex items-center justify-center my-2'>
             <StarRating
               totalStars={5}
-              // ternay condition if movie.vote_average undefined
               rating={movie.vote_average ? movie.vote_average / 2 : 0}
-              starRatedColor='lightblue'
+              starRatedColor='yellow'
               starDimension='18px'
               starSpacing='3px'
             />
@@ -34,7 +31,7 @@ const CardMovie = (props: { movie: IMovie }) => {
           </div>
         </div>
 
-        <h5 className='mb-2 text-xl font-bold tracking-tight text-sky-600 dark:text-white'>
+        <h5 className='mb-2 text-xl font-bold tracking-tight text-yellow-500 dark:text-white'>
           Synopsis
         </h5>
         <p className='text-base text-gray-700'>{movie.overview}</p>

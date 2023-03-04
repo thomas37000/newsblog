@@ -17,7 +17,6 @@ const HomeCoinList: React.FC<ICoinGeckoList> = ({ coins }) => {
       </div>
       <div className='flow-root'>
         <ul
-          role='list'
           className='divide-y divide-gray-200 dark:divide-gray-700'
         >
           {randomCoins.map((coin, index) => (

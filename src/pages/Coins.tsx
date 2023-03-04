@@ -2,17 +2,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ICoinExchange from '../interfaces/Coins/CoinsApi/CoinExchangeInterface';
 import CardCoin from '../components/Cards/CardCoins';
-import '../App.css';
 import requestError from '../assets/429.png';
+import '../App.css';
 
 const Coins: React.FunctionComponent = () => {
-  // const [coins, setCoins] = useState<ICoinExchangeRate[]>([]);
   const [coins, setCoins] = useState<ICoinExchange[]>([]);
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
   const urlCoinApi: string = 'https://rest.coinapi.io/v1/exchanges';
-  //'https://rest.coinapi.io/v1/exchangerate/asset_id_base=BTC/asset_id_quote=USD';
   const coinTokens: string | undefined = process.env.REACT_APP_API_COIN_KEY;
 
   useEffect(() => {
@@ -21,12 +19,9 @@ const Coins: React.FunctionComponent = () => {
 
       axios
         .get(`${`${urlCoinApi}?apikey=${coinTokens}`}`)
-        // v1/exchangerate/{asset_id_base}/{asset_id_quote}?time={time}
-        // .get(`${`${urlCoinApiRate}?time=${time}?apikey=${coinTokens}`}`)
         .then((res) => {
           setError('');
           setCoins(res.data);
-          // console.log(res.data);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));

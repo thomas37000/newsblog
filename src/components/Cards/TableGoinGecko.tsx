@@ -180,26 +180,6 @@ const TableCoinGecko: React.FC<ICoinGeckoTable> = ({ coins }) => {
                     >
                       Mkt CAp
                     </th>
-                    <th
-                      scope='col'
-                      className='flex items-center px-6 py-4 text-sm font-medium text-left text-gray-900'
-                    >
-                      last 7 Days
-                      <svg
-                        className='w-6 h-6 ml-2 dark:text-white'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
-                          stroke-width='2'
-                          d='M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'
-                        ></path>
-                      </svg>
-                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -266,9 +246,6 @@ const TableCoinGecko: React.FC<ICoinGeckoTable> = ({ coins }) => {
                       <td className='px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap'>
                         <span className='font-medium'>$ </span>
                         {coin.market_cap.toLocaleString('en-US')}
-                      </td>
-                      <td className='px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap'>
-                        {/* {coin.market_cap} */}
                       </td>
                     </tr>
                   ))}

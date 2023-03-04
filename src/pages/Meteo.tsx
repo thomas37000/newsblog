@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-redundant-roles */
 import React, { useState } from 'react';
 import { IWeather } from '../interfaces/WeatherInterface';
 import { fetchWeather } from '../api/weatherApi';
@@ -13,7 +12,6 @@ const Meteo: React.FC<IWeather> = () => {
       const res = await fetchWeather(cities);
       setWeather(res);
       setCities('');
-      //  console.log('api', res);
     }
   };
 
@@ -43,7 +41,7 @@ const Meteo: React.FC<IWeather> = () => {
             placeholder='Nantes'
             value={cities}
             onChange={searchCities}
-            onKeyPress={search}
+            onKeyDown={search}
             className='px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
           />
         </div>
@@ -67,7 +65,7 @@ const Meteo: React.FC<IWeather> = () => {
                   </span>
                 </div>
 
-                <ul role='list' className='space-y-5 my-7'>
+                <ul className='space-y-5 my-7'>
                   <li className='flex space-x-3'>
                     <span className='text-base text-gray-700'>
                       Ressenti {weather.main.feels_like}

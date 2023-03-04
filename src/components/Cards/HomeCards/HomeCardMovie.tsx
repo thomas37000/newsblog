@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import { IMovie } from '../../../interfaces/MovieInterface';
 import { ImgMovieApi } from '../../../api/imgMovieApi';
 import StarRating from 'react-star-ratings';

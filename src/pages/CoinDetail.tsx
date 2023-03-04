@@ -13,7 +13,6 @@ import {
   Legend,
 } from 'chart.js';
 import moment from 'moment';
-import CardCoinDetail from '../components/Cards/CardCoinDetail';
 import ICoinGeckoDetail from '../interfaces/Coins/GeckoApi/CoinsInterfaceGeckoDetail';
 
 ChartJS.register(
@@ -28,7 +27,8 @@ ChartJS.register(
 
 const CoinDetail: React.FunctionComponent = () => {
   const [prices, setPrices] = useState<{ x: number; y: number }[]>([]);
-  const [coins, setCoins] = useState<ICoinGeckoDetail[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [coins, setCoins] = useState<ICoinGeckoDetail[]>([]);  
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -48,7 +48,7 @@ const CoinDetail: React.FunctionComponent = () => {
     };
 
     fetchData();
-  }, []);
+  }, [market_char]);
 
   const coinDetail = `https://api.coingecko.com/api/v3/coins/${id}?localization=false&tickers=false&market_data=false&community_data=false&sparkline=false`;
 
@@ -61,14 +61,13 @@ const CoinDetail: React.FunctionComponent = () => {
         .then((res) => {
           setError('');
           setCoins(res.data);
-          console.log('Crypto detail', res.data);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));
     };
 
     loadCoin();
-  }, []);
+  }, [coinDetail]);
 
   const options = {
     responsive: true,
@@ -91,6 +90,9 @@ const CoinDetail: React.FunctionComponent = () => {
       },
     ],
   };
+
+  if (loading) return <p>"Loading ..."</p>;
+  if (error !== '') return <p>"Problème avec l'Api..."</p>;
 
   return (
     <>

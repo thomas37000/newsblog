@@ -18,8 +18,6 @@ const CardArticle = (props: { article: IArticle }) => {
   const date = new Date(article.publishedAt);
   const frDate = date.toLocaleDateString('fr-FR');
 
-  // const likeBtn = document.getElementById('like') as HTMLButtonElement | null;
-
   return (
     <div className='flex justify-center'>
       <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow-md card-article dark:bg-gray-800 dark:border-gray-700'>

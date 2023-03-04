@@ -15,7 +15,7 @@ const News: React.FunctionComponent = () => {
   const API_KEY: string | undefined = process.env.REACT_APP_API_NEWS_KEY;
   const date = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
     .toISOString()
-    .substr(0, 10);
+    .substring(0, 10);
 
   useEffect(() => {
     const loadData = () => {
@@ -24,10 +24,7 @@ const News: React.FunctionComponent = () => {
         .get(`${Url}?country=fr&category=entertainment&apiKey=${API_KEY}`)
         .then((res) => {
           setError('');
-          // console.log('DATA', res.data.articles);
-          // console.log('catégories', res.data.sources);
           setNews(res.data.articles);
-          //setNews(res.data.sources);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));
@@ -41,27 +38,6 @@ const News: React.FunctionComponent = () => {
     news.map((article, i) => {
       return <CardArticle key={i} article={article} />;
     });
-
-  /*********** SEARCH *************/
-
-  // const search = async (e: React.KeyboardEvent<HTMLInputElement>) => {
-  //   if (e.key === 'Enter') {
-  //     const res = await fetchNews(articles);
-  //     setArticles(res);
-  //     console.log('articles Api', res);
-  //   }
-  // };
-
-  // const searchArticles = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   e.preventDefault();
-  //   setArticles(e.target.value);
-  // };
-
-  /*********** Input Range *************/
-  // const updateNews = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   e.preventDefault();
-  //   setNewsShow(e.target.value);
-  // };
 
   if (loading) return <p>"Loading ..."</p>;
   // apinews gratuit en localhost payant si build

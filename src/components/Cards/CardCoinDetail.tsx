@@ -3,8 +3,6 @@ import ICoinGeckoDetail from '../../interfaces/Coins/GeckoApi/CoinsInterfaceGeck
 const CardCoinDetail = (props: { coin: ICoinGeckoDetail }) => {
   const { coin } = props;
 
-  // const coinDetail = `https://api.coingecko.com/api/v3/coins/${coin.id}?localization=false&tickers=false&market_data=false&community_data=false&sparkline=false`;
-
   return (
     <div className='my-6'>
       <div className='flex items-center gap-2'>

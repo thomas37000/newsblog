@@ -21,8 +21,7 @@ const FilterMoviesByGenre = (props: {
     );
 
     setFiltered(filtered);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeGenre]);
+  }, [activeGenre, movies, setFiltered]);
 
   return (
     <div className='w-8/12'>
@@ -63,12 +62,6 @@ const FilterMoviesByGenre = (props: {
         Animation
       </button>
       <button
-        onClick={() => setActiveGenre(80)}
-        className='px-4 py-2 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white hover:border-transparent'
-      >
-        Crime
-      </button>
-      <button
         onClick={() => setActiveGenre(99)}
         className='px-4 py-2 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white hover:border-transparent'
       >
@@ -79,12 +72,6 @@ const FilterMoviesByGenre = (props: {
         className='px-4 py-2 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white hover:border-transparent'
       >
         Drame
-      </button>
-      <button
-        onClick={() => setActiveGenre(10751)}
-        className='px-4 py-2 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white hover:border-transparent'
-      >
-        Famille
       </button>
       <button
         onClick={() => setActiveGenre(14)}
@@ -127,24 +114,6 @@ const FilterMoviesByGenre = (props: {
         className='px-4 py-2 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white hover:border-transparent'
       >
         Histoire
-      </button>
-      <button
-        onClick={() => setActiveGenre(9648)}
-        className='px-4 py-2 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white hover:border-transparent'
-      >
-        Mystère
-      </button>
-      <button
-        onClick={() => setActiveGenre(10402)}
-        className='px-4 py-2 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white hover:border-transparent'
-      >
-        Musique
-      </button>
-      <button
-        onClick={() => setActiveGenre(10770)}
-        className='px-4 py-2 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white hover:border-transparent'
-      >
-        Film Télé
       </button>
     </div>
   );

@@ -25,7 +25,7 @@ ChartJS.register(
   Legend
 );
 
-const CoinDetail: React.FunctionComponent = () => {
+const CoinDetail: React.FC = () => {
   const [prices, setPrices] = useState<{ x: number; y: number }[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [coins, setCoins] = useState<ICoinGeckoDetail[]>([]);  

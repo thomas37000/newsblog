@@ -60,53 +60,13 @@ const TableCoinGecko: React.FC<ICoinGeckoTable> = ({ coins }) => {
                     </th>
                     <th
                       scope='col'
-                      className='flex items-center px-6 py-4 text-sm font-medium text-left text-gray-900'
+                      className='px-6 py-4 text-sm font-medium text-left text-gray-900 '
                     >
                       Coin
-                      <svg
-                        onClick={() =>
-                          setFilters({
-                            ...filters,
-                            asc: !filters.asc,
-                          })
-                        }
-                        className='w-6 h-6 dark:text-white'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
-                          stroke-width='2'
-                          d='M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z'
-                        ></path>
-                      </svg>
-                      <svg
-                        onClick={() =>
-                          setFilters({
-                            ...filters,
-                            desc: !filters.desc,
-                          })
-                        }
-                        className='w-6 h-6 dark:text-white'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
-                          stroke-width='2'
-                          d='M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z'
-                        ></path>
-                      </svg>
                     </th>
                     <th
                       scope='col'
-                      className='px-6 py-4 text-sm font-medium text-left text-gray-900'
+                      className='inline-flex items-center px-6 py-4 text-sm font-medium text-left text-gray-900 '
                     >
                       Price
                       <svg
@@ -116,16 +76,16 @@ const TableCoinGecko: React.FC<ICoinGeckoTable> = ({ coins }) => {
                             highPrice: !filters.highPrice,
                           })
                         }
-                        className='w-6 h-6 dark:text-white'
+                        className='w-4 h-4 dark:text-white'
                         fill='none'
                         stroke='currentColor'
                         viewBox='0 0 24 24'
                         xmlns='http://www.w3.org/2000/svg'
                       >
                         <path
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
-                          stroke-width='2'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
                           d='M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z'
                         ></path>
                       </svg>
@@ -136,16 +96,16 @@ const TableCoinGecko: React.FC<ICoinGeckoTable> = ({ coins }) => {
                             lowPrice: !filters.lowPrice,
                           })
                         }
-                        className='w-6 h-6 dark:text-white'
+                        className='w-4 h-4 dark:text-white'
                         fill='none'
                         stroke='currentColor'
                         viewBox='0 0 24 24'
                         xmlns='http://www.w3.org/2000/svg'
                       >
                         <path
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
-                          stroke-width='2'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
                           d='M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z'
                         ></path>
                       </svg>
@@ -166,7 +126,7 @@ const TableCoinGecko: React.FC<ICoinGeckoTable> = ({ coins }) => {
                       scope='col'
                       className='px-6 py-4 text-sm font-medium text-left text-gray-900'
                     >
-                      7 days
+                      7d
                     </th>
                     <th
                       scope='col'

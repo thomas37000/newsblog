@@ -16,11 +16,12 @@ const HomeCoinList: React.FC<ICoinGeckoList> = ({ coins }) => {
         </h5>
       </div>
       <div className='flow-root'>
-        <ul
-          className='divide-y divide-gray-200 dark:divide-gray-700'
-        >
+        <ul className='divide-y divide-gray-200 dark:divide-gray-700'>
           {randomCoins.map((coin, index) => (
-            <li className='py-3 sm:py-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer'>
+            <li
+              key={coin.id}
+              className='py-3 border-b cursor-pointer sm:py-4 hover:bg-gray-100 dark:hover:bg-gray-600'
+            >
               <Link to={`/coin/${coin.id}`} key={coin.id}>
                 <div className='flex items-center space-x-4'>
                   <div className='flex-shrink-0'>
@@ -40,7 +41,7 @@ const HomeCoinList: React.FC<ICoinGeckoList> = ({ coins }) => {
 
                   <div className='inline-flex items-center'>
                     {coin.price_change_percentage_24h.toFixed(1)}
-                    <span className='font-medium ml-1'> %</span>
+                    <span className='ml-1 font-medium'> %</span>
                   </div>
                 </div>
               </Link>

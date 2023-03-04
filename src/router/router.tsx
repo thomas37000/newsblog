@@ -13,7 +13,7 @@ const Routter = () => {
       <Nav />
       <main>
         <Routes>
-        <Route index element={<Home />} />
+          <Route index element={<Home />} />
           <Route path='movies' element={<Movies />} />
           <Route path='coins' element={<CoinsGecko />} />
           <Route path='coin/:id' element={<CoinDetail />} />

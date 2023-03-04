@@ -22,7 +22,6 @@ const CoinsGecko: React.FC = () => {
         .then((res) => {
           setError('');
           setCoins(res.data);
-          console.log(res.data);
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));
@@ -33,7 +32,6 @@ const CoinsGecko: React.FC = () => {
 
   if (loading) return <p>"Loading ..."</p>;
   if (error !== '')
-
     return (
       <div className='max-w-sm overflow-hidden rounded shadow-lg api-error'>
         <img className='w-full' src={requestError} alt='429 too many request' />

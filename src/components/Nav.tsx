@@ -3,6 +3,7 @@ import './Nav.css';
 import logo from '../assets/logo.png';
 
 const Nav = () => {
+
   return (
     <>
       <header className='App-header text-gray-500 '>
@@ -10,7 +11,7 @@ const Nav = () => {
           <img src={logo} className='App-logo' alt='logo' />
           <span className='ml-4'>News Blog</span>
         </Link>
-   
+
         <nav>
           <div className='nav-links'>
             <Link to='/' className='name-link'>
@@ -27,7 +28,7 @@ const Nav = () => {
               Cryptomonnaies
             </Link>
           </div>
-          <div className='nav-links'>
+          <div className='nav-links nav-meteo'>
             <Link to='/meteo' className='name-link'>
               Météo
             </Link>

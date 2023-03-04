@@ -6,6 +6,10 @@ header nav {
   margin: 0 auto;
 }
 
+.App-header {
+  border-bottom: 1px solid lightgray;
+}
+
 .name-link {
   text-decoration: none;
   margin: 0 1rem;
@@ -18,4 +22,8 @@ header nav {
 }
 .nav-links:hover {
   color: #60a5fa;
+}
+
+.nav-meteo, header nav {
+  background-color: #fff;
 }

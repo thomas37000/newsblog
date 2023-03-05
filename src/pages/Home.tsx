@@ -7,6 +7,7 @@ import ICoinGecko from '../interfaces/Coins/GeckoApi/CoinsInterfaceGecko';
 import HomeCardMovie from '../components/Cards/HomeCards/HomeCardMovie';
 import HomeCoinList from '../components/Cards/HomeCards/HomeCoinList';
 import { IWeather } from '../interfaces/WeatherInterface';
+import '../App.css';
 
 const Home: React.FC = () => {
   const [coins, setCoins] = useState<ICoinGecko[]>([]);
@@ -103,8 +104,8 @@ const Home: React.FC = () => {
           {weather && weather.main && (
             <>
               <div className='flex items-center justify-center mb-4 p-4t'>
-                <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700'>
-                  <div className='px-6 py-4'>
+                <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 mr-40'>
+                  <div className='px-6 py-4 w-72'>
                     <h5 className='mb-2 text-2xl font-bold tracking-tight text-sky-600 dark:text-white'>
                       {regexCity}
                     </h5>

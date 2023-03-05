@@ -21,7 +21,6 @@
   font-size: calc(10px + 2vmin);
 }
 
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -37,10 +36,16 @@
   background-image: url('https://paysages.photos/wp-content/uploads/2017/06/paysage-nature-2-1-1024x684.jpg');
 } */
 
-
 .api-error {
   position: absolute;
   top: 35%;
   left: 40%;
   margin: -25px 0 0 -25px;
+}
+
+@media only screen and (max-width: 740px) {
+  .justify-center.items-center.space-x-40,
+  .flex.justify-center.mt-8.space-x-4 {
+    flex-direction: column;
+  }
 }

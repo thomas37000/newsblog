@@ -48,4 +48,10 @@
   .flex.justify-center.mt-8.space-x-4 {
     flex-direction: column;
   }
+
+  .w-8\/12 {
+   width: auto;
+   font-size: x-small;
+   margin-bottom: 1rem;
+  }
 }

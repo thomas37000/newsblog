@@ -4,6 +4,7 @@ import { IMovie } from '../interfaces/MovieInterface';
 import CardMovie from '../components/Cards/CardMovie';
 import networkError from '../assets/network-error.jpg';
 import FilterMoviesByGenre from '../components/FilterMovies';
+import '../App.css';
 
 const Movies: React.FC = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
@@ -83,7 +84,7 @@ const Movies: React.FC = () => {
           setActiveGenre={setActiveGenre}
         />
       </div>
-      
+
       <div className='flex flex-wrap space-x-4 space-y-4'>{fetchMovies}</div>
     </div>
   );

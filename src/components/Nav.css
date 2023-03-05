@@ -24,6 +24,23 @@ header nav {
   color: #60a5fa;
 }
 
-.nav-meteo, header nav {
+.nav-meteo,
+header nav {
   background-color: #fff;
+}
+
+@media only screen and (max-width: 740px) {
+  header nav {
+    gap: 0;
+  }
+
+  /* App-logo */
+  .name-link.flex.items-center.justify-center {
+    display: none;
+  }
+
+  .nav-links {
+    font-size: small;
+    width: 80px;
+  }
 }

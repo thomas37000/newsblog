@@ -1,46 +1,111 @@
-# Getting Started with Create React App
+## demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://main--newsblog-typescript.netlify.app/
 
-## Available Scripts
+# newsblog
 
-In the project directory, you can run:
+A blog where you can have informations about : 
 
-### `npm start`
+ - weather report
+ - real-time cryptocurrency prices
+ - the ranking of the best films by popularity
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ ## Run Locally
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Clone the project
 
-### `npm test`
+```bash
+  git clone https://github.com/thomas37000/newsblog
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Go to the project directory
 
-### `npm run build`
+```bash
+  cd newsblog
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+  npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Start the server
 
-### `npm run eject`
+```bash
+  npm run start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## API themoviedb
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Get all movies by popularity
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```http
+ https://api.themoviedb.org/3/discover/movie/popular?api_key=${API_MOVIE_KEY}&language=${language}&sort_by=${popularity}&include_adult=false&include_video=false&page=${pagesShow}&with_watch_monetization_types=${monetisation}
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `API_MOVIE_KEY` | `string` | **Required**. Your API key |
+| `language` | `string` |**fr** for France,  **en-US** for English|
+| `sort_by` | `string` |**popularity** filter|
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Get image in movie Card
 
-## Learn More
+```http
+export const ImgMovieApi= "https://image.tmdb.org/t/p/w1280"
+```
+```http
+ <img src={ImgMovieApi + movie.backdrop_path} alt={movie.title} />
+ ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## API coingecko
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Get all coins
+
+```http
+  GET https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&page=1&sparkline=false
+```
+
+#### Get coin detail
+
+```http
+  GET https://api.coingecko.com/api/v3/coins/${id}?localization=false&tickers=false&market_data=false&community_data=false&sparkline=false
+```
+## API openweathermap
+
+#### Get all cities
+
+```http
+https://api.openweathermap.org/data/2.5/weather
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `API_WEATHER_KEY` | `string` | **Required**. Your API key |
+
+#### Get one city
+Here for exemple i get the weather of my city "Nantes"
+
+```http
+https://api.openweathermap.org/data/2.5/weather?q=Nantes&appid=${API_WEATHER_KEY}&units=metric
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `API_WEATHER_KEY` | `string` | **Required**. Your API key |
+
+## API newsapi (worls only in Localhost)
+#### must paid if you want to build https://newsapi.org/pricing
+
+#### Get all news
+```http
+https://newsapi.org/v2/top-headlines?country=fr&category=entertainment&apiKey=${API_KEY}
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `country` | `string` | **fr** - for France|
+| `category` | `string` | **entertainment** for exemple |
+| `API_KEY` | `string` | **Required**. Your API key |
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://thomas-chalanson-react-portfolio.netlify.app/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/thomas-chalanson/)

@@ -44,7 +44,7 @@ const CoinDetail: React.FC = () => {
           y: value[1].toFixed(2),
         }))
       );
-      console.log('ChartJS', res.data);
+      // console.log('ChartJS', res.data);
     };
 
     fetchData();

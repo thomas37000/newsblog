@@ -15,7 +15,7 @@ const Movies: React.FC = () => {
 
   const urlMovieDbApi: string = 'https://api.themoviedb.org/3/movie/popular';
   const API_MOVIE_KEY: string | undefined = process.env.REACT_APP_API_MOVIE_KEY;
-  const language: string = 'en-US';
+  const language: string = 'fr';
   const popularity: string = 'popularity.desc';
   const pagesShow: number = 1;
   const monetisation: string = 'flatrate';
